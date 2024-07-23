@@ -1,0 +1,60 @@
+
+<div class="text-center mb-5">
+    <h2 class="my-5">Contacta amb nosaltres</h2>
+    <p>Qualsevol dubte, pregunta o informació addicional que vulguis saber, no dubtis en contactar-nos a través d’aquest formulari. Barakallahufik!</p>
+</div>
+
+
+<section>
+    <!-- Formulari -->
+    <form class="mid-form col-lg-6 offset-lg-3" #userForm="ngForm" (ngSubmit)="onSubmit()">
+        <div class="row justify-content-center">
+            <label class="form-label px-0 fw-bold" for="nom_cognoms">Nom i Cognoms</label>
+            <input
+                class="form-control"
+                type="text"
+                name="nom_cognoms"
+                #nom_cognoms="ngModel"
+                [(ngModel)]="user.nom_cognoms"
+                placeholder="Escriu el teu nom i cognoms"
+                required
+                pattern="[a-zA-Z]+"
+            />
+            <small *ngIf="!nom_cognoms.valid && nom_cognoms.touched">El nom i els cognoms estan buits</small>
+        </div>
+        
+        <div class="my-4 row justify-content-center">
+            <label class="form-label px-0 fw-bold" for="correu">Correu</label>
+            <input
+                class="form-control"
+                type="text"
+                name="correu"
+                #correu="ngModel"
+                [(ngModel)]="user.correu"
+                placeholder="Escriu el teu correu"
+                required
+            />
+            <small *ngIf="!correu.valid && correu.touched">El correu no és vàlid o està buit</small>
+        </div>
+        
+        <div class="row justify-content-center">
+            <label class="form-label px-0 fw-bold" for="missatge">Missatge</label>
+            <textarea
+                class="form-control"
+                name="missatge"
+                #missatge="ngModel"
+                [(ngModel)]="user.missatge"
+                placeholder="Escriu el teu missatge..."
+                required
+            ></textarea>
+            <small *ngIf="!missatge.valid && missatge.touched">El missatge està buit</small>
+        </div>
+ 
+        <!-- Limpiar los flotados -->
+        <div class="clearfix"></div>
+
+        <div class="text-center">
+            <input type="submit" value="Enviar el missatge" class="btn btn-success my-4" [disabled]="userForm.invalid">
+        </div>
+    </form>
+</section>
