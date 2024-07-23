@@ -1,0 +1,19 @@
+.titol-inici {
+    margin-top: 4%;
+}
+
+.titol-inici img {
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.hadith {
+    display: flex;
+    justify-content: center;
+    background-color: rgb(25, 135, 84);
+    color: white;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
